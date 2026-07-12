@@ -1,0 +1,8 @@
+# codification.allow -- per-repo codification allowlist (empty template).
+# Format: "<class> <repo-relative-path-or-glob>"; '#' starts a comment line.
+# Classes that accept entries: crlf, emoji, path (bom and nul never do).
+# A trailing "*" is a shell-case glob (matches across "/").
+# Every entry must cite a recorded decision in the repo's decision log:
+# adding an entry is a recorded decision, not a silent exemption.
+# Example entry (remove the leading '#' to activate):
+# path docs/legacy/imported-inventory.md

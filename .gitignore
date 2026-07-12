@@ -1,0 +1,6 @@
+# Self-test fixtures of the codification gate (never committed).
+*.tmp.md
+
+# Environment files stay untracked (see core/20-operational/OPERATIONAL-RULES.md).
+.env
+.env.*

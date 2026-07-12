@@ -1,0 +1,9 @@
+#!/bin/sh
+# pre-commit -- repository codification gate (fail-closed).
+# Delegates to githooks/check-codification.sh, which scans staged files.
+# Activation (once, by the repo maintainer): git config core.hooksPath githooks
+# POSIX sh; works under Git for Windows.
+set -u
+
+root=$(git rev-parse --show-toplevel) || exit 1
+exec "$root/githooks/check-codification.sh"

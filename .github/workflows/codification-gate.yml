@@ -1,0 +1,33 @@
+# codification-gate.yml -- server-side codification gate (GitHub Actions).
+# Live instance for this repo (copy of core/60-ci/github-actions/codification-gate.yml):
+# the frame home eats its own dogfood -- every pull request runs the same check
+# the local pre-commit hook runs, on the files the PR adds or modifies.
+
+name: codification-gate
+
+on:
+  pull_request:
+
+jobs:
+  codification-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out with full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run the codification check on files changed by the PR
+        shell: bash
+        run: |
+          base="${{ github.event.pull_request.base.sha }}"
+          # Added/Copied/Modified files of this PR relative to the merge base.
+          files=$(git diff --name-only --diff-filter=ACM "$base"...HEAD)
+          if [ -z "$files" ]; then
+            echo "No added or modified files to check."
+            exit 0
+          fi
+          echo "Files under check:"
+          echo "$files"
+          # shellcheck disable=SC2086
+          sh githooks/check-codification.sh $files

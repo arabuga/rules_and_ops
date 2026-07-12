@@ -1,0 +1,8 @@
+# codification.allow -- codification allowlist of the familycode repository.
+# Format: "<class> <repo-relative-path-or-glob>"; '#' starts a comment line.
+# Classes that accept entries: crlf, emoji, path (bom and nul never do).
+# Every entry cites a recorded decision in memory/decisionLog.md.
+
+# --- path: the gate script embeds its detection patterns literally ---
+# (decision D-002 in memory/decisionLog.md, proposed with the frame adoption)
+path githooks/check-codification.sh

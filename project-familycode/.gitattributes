@@ -1,0 +1,5 @@
+# Enforce LF in working copies regardless of the machine's autocrlf setting.
+# Companion to the codification gate (githooks/): the gate checks working-tree
+# bytes, and Windows checkouts with core.autocrlf=true would otherwise turn
+# every file into CRLF and block commits.
+* text=auto eol=lf

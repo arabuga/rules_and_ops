@@ -45,3 +45,10 @@ Machine-facing rules, templates, gates, adapters: **English** (maximum
 compatibility across AI models and tools). Operator-facing handover documents
 (`README.md`, `project-familycode/ONBOARDING.md`) and this repo's working memory:
 **Russian**. The policy itself is part of the frame: see `CODIFICATION.md`.
+
+## Точка входа свежая (обязательно)
+
+Точка входа «где мы сейчас» этого репо: `memory/activeContext.md`. Сессия, которая создала новое сводное
+состояние (итог работы, смену фокуса, новую точку возврата), **в этой же сессии** обновляет
+её, с датой. Устаревшая точка входа — ошибка закрытия сессии, работа не считается завершённой.
+(Правило оператора 2026-09-27; в рабочих репо — `_rules` спины §H п.10.)
